@@ -6,7 +6,6 @@ import {fetchGame, postMove} from "../FetchTasks";
 //handles game logic
 function Game(props){
     const [playersTurn, setPlayersTurn] = useState();
-    const [timer, setTimer] = useState(60000);
     const [game, setGame] = useState();
     const [board, setBoard] = useState([
         [-1, -1, -1, 0, -1, -1, 0, -1, -1, -1],
@@ -20,14 +19,13 @@ function Game(props){
         [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
         [-1, -1, -1, 1, -1, -1, 1, -1, -1, -1]
     ]);
-    let [turns, setTurns] = useState(0);
-    const [val, setVal] = useState(0);
 
-    //is used to fetch game object every 0.5 seconds
+    let turn = 0;
+    //is used to fetch game object every 0.1 seconds
     useEffect(() => {
         const interval = setInterval(async () => {
             await getGame(interval);
-        }, 500);
+        }, 100);
       }, []);
     
     //fetches game
@@ -35,12 +33,11 @@ function Game(props){
         let game = await fetchGame(props.gameId);
         if(game.winningPlayer === undefined)
         {
-            if(game.turns.length > turns)
+            if(game.turns.length > turn)
             {
-                setTurns(game.turns.length);
+                turn = game.turns.length;
                 setGame(game);
                 setBoard(game.board.squares);
-                setPlayersTurn(game.turnPlayer);
             }
         }
         else
@@ -56,12 +53,11 @@ function Game(props){
     //should move selected figure to destined position
     const movePlayer = (from, to) =>{
         let temp = board;
-        let val = board[from[0]][from[1]];
+        let value = board[from[0]][from[1]];
         temp[from[0]][from[1]] = -1;
-        temp[to[0]][to[1]] = val;
+        temp[to[0]][to[1]] = value;
         setBoard(temp);
         setMoves([from, to]);
-        setVal(val++);
     }
 
     //should shoot arrow
@@ -74,7 +70,7 @@ function Game(props){
     return(
         <div className="Game_screen">
             {game === undefined ? <h1>{props.player}</h1> : <h1>{game.players[game.turnPlayer].name}</h1>}
-            <ChessBoard board={board} playersTurn={playersTurn} movePlayer={movePlayer} setArrow={setArrow} val={val}/>
+            <ChessBoard board={board} playersTurn={playersTurn} movePlayer={movePlayer} setArrow={setArrow}/>
         </div>
         )
 }
