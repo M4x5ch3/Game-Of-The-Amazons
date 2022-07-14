@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/Game-Of-The-Amazons/static/css/main.3964233c.css",
-    "main.js": "/Game-Of-The-Amazons/static/js/main.38dec071.js",
+    "main.js": "/Game-Of-The-Amazons/static/js/main.79c8cfb4.js",
     "static/js/787.534f5483.chunk.js": "/Game-Of-The-Amazons/static/js/787.534f5483.chunk.js",
     "static/media/amazon_white.png": "/Game-Of-The-Amazons/static/media/amazon_white.1f73f3aa1e21bef0e419.png",
     "static/media/amazon_black.png": "/Game-Of-The-Amazons/static/media/amazon_black.48ea5b957319b7be86d7.png",
     "index.html": "/Game-Of-The-Amazons/index.html",
     "main.3964233c.css.map": "/Game-Of-The-Amazons/static/css/main.3964233c.css.map",
-    "main.38dec071.js.map": "/Game-Of-The-Amazons/static/js/main.38dec071.js.map",
+    "main.79c8cfb4.js.map": "/Game-Of-The-Amazons/static/js/main.79c8cfb4.js.map",
     "787.534f5483.chunk.js.map": "/Game-Of-The-Amazons/static/js/787.534f5483.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3964233c.css",
-    "static/js/main.38dec071.js"
+    "static/js/main.79c8cfb4.js"
   ]
 }
