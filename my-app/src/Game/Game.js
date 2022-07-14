@@ -33,12 +33,9 @@ function Game(props){
         let game = await fetchGame(props.gameId);
         if(game.winningPlayer === undefined)
         {
-            if(game.turns.length > turn)
-            {
-                turn = game.turns.length;
-                setGame(game);
-                setBoard(game.board.squares);
-            }
+            turn = game.turns.length;
+            setGame(game);
+            setBoard(game.board.squares);
         }
         else
         {
